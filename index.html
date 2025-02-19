@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JASAJ BARBER - Gentleman's Grooming</title>
+  <meta name="description" content="Profesionálny barber shop v Trenčíne. Strihanie, úprava brady a moderný pánsky styling v luxusnom prostredí.">
+  <meta name="keywords" content="barber, gentleman, účes, brada, fúzy, úprava brady, pánsky účes, holič, úprava fúzov, holenie, trenčín, premium">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #132C33;
+      --secondary: #BA8C63;
+      --accent: #D4B08C;
+      --light: #F8F4E3;
+      --dark: #0D1F23;
+      --gray: #51697A;
+      --border-radius: 4px;
+      --transition: all 0.3s ease;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+      letter-spacing: 0.05em;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80px;
+      height: 3px;
+      background-color: var(--secondary);
+    }
+    
+    h2 strong {
+      color: var(--secondary);
+      font-style: italic;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: var(--transition);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .wrapper {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: var(--secondary);
+      color: white;
+      font-weight: 500;
+      padding: 0.8rem 2rem;
+      border-radius: var(--border-radius);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      border: 1px solid var(--secondary);
+      font-size: 0.9rem;
+    }
+    
+    .btn:hover {
+      background-color: transparent;
+      color: var(--secondary);
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background-color: transparent;
+      color: var(--secondary);
+      border: 1px solid var(--secondary);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .text-center {
+      text-align: center;
+    }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: var(--transition);
+      padding: 1rem 0;
+    }
+    
+    header.scrolled {
+      background-color: var(--primary);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      padding: 0.6rem 0;
+    }
+    
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      height: 60px;
+      transition: var(--transition);
+    }
+    
+    header.scrolled .logo img {
+      height: 50px;
+    }
+    
+    .logo h1 {
+      font-size: 1.8rem;
+      margin: 0 0 0 1rem;
+      color: var(--light);
+    }
+    
+    .logo h1 span {
+      color: var(--secondary);
+      font-style: italic;
+    }
+    
+    nav {
+      position: relative;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    nav li {
+      margin-left: 2rem;
+    }
+    
+    nav a {
+      color: var(--light);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    
+    nav a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary);
+      transition: var(--transition);
+    }
+    
+    nav a:hover:after {
+      width: 100%;
+    }
+    
+    .social-links {
+      display: flex;
+      margin-left: 2rem;
+    }
+    
+    .social-links a {
+      color: var(--light);
+      margin-left: 1rem;
+      font-size: 1.2rem;
+    }
+    
+    .social-links a:hover {
+      color: var(--secondary);
+    }
+    
+    .mobile-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: var(--light);
+      cursor: pointer;
+      z-index: 1001;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none;
+    }
+    
+    @media (max-width: 992px) {
+      .mobile-toggle {
+        display: block;
+      }
+      
+      nav ul {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        background-color: var(--primary);
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        z-index: 1000;
+        transition: right 0.3s ease;
+        box-shadow: -5px 0 20px rgba(0,0,0,0.2);
+      }
+      
+      nav ul.active {
+        right: 0;
+      }
+      
+      nav li {
+        margin: 0 0 20px 0;
+      }
+      
+      nav a {
+        display: block;
+        font-size: 1rem;
+      }
+      
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 999;
+        display: none;
+      }
+      
+      .mobile-menu-overlay.active {
+        display: block;
+      }
+    }
+    
+    /* Hero */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(rgba(13, 31, 35, 0.7), rgba(13, 31, 35, 0.7)), url('/api/placeholder/1920/1080') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      color: var(--light);
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+    }
+    
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+    
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .scroll-down {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--light);
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+      }
+      40% {
+        transform: translateY(-20px) translateX(-50%);
+      }
+      60% {
+        transform: translateY(-10px) translateX(-50%);
+      }
+    }
+    
+    /* Sections */
+    section {
+      padding: 5rem 0;
+    }
+    
+    section.light {
+      background-color: var(--light);
+      color: var(--dark);
+    }
+    
+    section.dark {
+      background-color: var(--primary);
+      color: var(--light);
+    }
+    
+    section.dark h2:after {
+      background-color: var(--accent);
+    }
+    
+    /* About */
+    .about {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .about-image {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    
+    .about-image:before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100%;
+      height: 100%;
+      border: 5px solid var(--secondary);
+      z-index: -1;
+    }
+    
+    /* Benefits */
+    .benefits {
+      background-color: var(--primary);
+      color: var(--light);
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .benefit-card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .benefit-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+    
+    .benefit-title {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Hours */
+    .hours {
+      background-color: var(--light);
+    }
+    
+    .hours-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: white;
+      padding: 3rem;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .hours-list {
+      margin-top: 2rem;
+    }
+    
+    .hours-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .hours-item:last-child {
+      border-bottom: none;
+    }
+    
+    .day {
+      font-weight: 600;
+    }
+    
+    .time {
+      color: var(--gray);
+    }
+    
+    .closed {
+      color: #D85656;
+    }
+    
+    /* Team */
+    .team {
+      background-color: var(--primary);
+      color: var(--light);
+    }
+    
+    .team-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+      align-items: center;
+    }
+    
+    .team-video {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+    
+    .team-members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+    }
+    
+    .team-member {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    
+    .team-member:hover {
+      transform: translateY(-10px);
+    }
+    
+    .member-image {
+      height: 350px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .member-info {
+      padding: 1.5rem;
+      text-align: center;
+    }
+    
+    .member-name {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .member-title {
+      color: var(--secondary);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+    
+    .member-social {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    
+    .member-social a {
+      color: var(--light);
+      font-size: 1.2rem;
+    }
+    
+    .member-social a:hover {
+      color: var(--secondary);
+    }
+    
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+    
+    .service-card {
+      background-color: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      transition: var(--transition);
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    }
+    
+    .service-image {
+      height: 250px;
+      width: 100%;
+      object-fit: cover;
+    }
+    
+    .service-content {
+      padding: 2rem;
+      text-align: center;
+    }
+    
+    .service-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .service-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-price {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Gallery */
+    .gallery {
+      background-color: var(--primary);
+      color: var(--light);
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1rem;
+    }
+    
+    .gallery-item {
+      height: 300px;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .gallery-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    
+    .gallery-item:hover .gallery-image {
+      transform: scale(1.05);
+    }
+    
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(19, 44, 51, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    
+    .gallery-icon {
+      color: white;
+      font-size: 2rem;
+    }
+    
+    /* Booking */
+    .booking {
+      background: linear-gradient(rgba(13, 31, 35, 0.9), rgba(13, 31, 35, 0.9)), url('/api/placeholder/1920/1080') center/cover fixed no-repeat;
+      color: var(--light);
+    }
+    
+    .booking-form {
+      max-width: 800px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 3rem;
+      border-radius: var(--border-radius);
+      backdrop-filter: blur(10px);
+    }
+    
+    .form-intro {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .form-section {
+      margin-bottom: 2rem;
+    }
+    
+    .form-section-title {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-number {
+      background-color: var(--secondary);
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      font-size: 0.9rem;
+    }
+    
+    .option-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    
+    .option-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+    
+    .option-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .option-card.selected {
+      border-color: var(--secondary);
+      background: rgba(186, 140, 99, 0.1);
+    }
+    
+    .option-card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      object-fit: cover;
+    }
+    
+    .option-card h4 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .option-meta {
+      text-align: center;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .form-row {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-control {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 0.8rem 1rem;
+      border-radius: var(--border-radius);
+      color: var(--light);
+      font-family: inherit;
+    }
+    
+    .form-control::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--secondary);
+    }
+    
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    
+    .checkbox-group input {
+      margin-right: 0.5rem;
+    }
+    
+    .date-picker-wrapper, .time-picker-wrapper {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 0.5rem;
+    }
+    
+    .date-option, .time-option {
+      padding: 0.5rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    
+    .date-option:hover, .time-option:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+    
+    .date-option.selected, .time-option.selected {
+      background-color: var(--secondary);
+      color: white;
+    }
+    
+    .form-actions {
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .btn-submit {
+      background-color: var(--secondary);
+      padding: 1rem 3rem;
+      font-size: 1rem;
+    }
+    
+    /* Contact */
+    .contact {
+      background-color: var(--light);
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    
+    .contact-info {
+      padding: 2rem;
+      background-color: white;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    }
+    
+    .contact-logo {
+      width: 150px;
+      margin: 0 auto 2rem;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-icon {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-right: 1rem;
+    }
+    
+    .contact-map {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      height: 100%;
+    }
+    
+    .contact-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: var(--light);
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-logo {
+      width: 120px;
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-about p {
+      opacity: 0.7;
+    }
+    
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: var(--light);
+      transition: var(--transition);
+    }
+    
+    .footer-social a:hover {
+      background-color: var(--secondary);
+      transform: translateY(-3px);
+    }
+    
+    .footer-heading {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .footer-heading:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--secondary);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      opacity: 0.7;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--secondary);
+    }
+    
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1200px) {
+      h1 {
+        font-size: 3rem;
+      }
+      
+      h2 {
+        font-size: 2.2rem;
+      }
+      
+      .hero h1 {
+        font-size: 3.5rem;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .about, 
+      .team-intro,
+      .contact-container,
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .team-video {
+        margin: 0 auto;
+        max-width: 600px;
+      }
+      
+      .social-links {
+        margin-left: auto;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      section {
+        padding: 4rem 0;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .hero {
+        text-align: center;
+      }
+      
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .hero-content {
+        margin: 0 auto;
+      }
+      
+      .hero p {
+        margin: 0 auto 2rem;
+      }
+      
+      .hero-actions {
+        justify-content: center;
+      }
+      
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .wrapper {
+        padding: 0 1.5rem;
+      }
+      
+      .logo h1 {
+        font-size: 1.5rem;
+      }
+      
+      .social-links {
+        display: none;
+      }
+      
+      .option-cards,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .booking-form {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="wrapper header-inner">
+      <a href="#" class="logo">
+        <img src="data/images/logo_kontakt.jpg" alt="JASAJ BARBER Logo">
+        <h1>JASAJ <span>BARBER</span></h1>
+      </a>
+      
+      <nav>
+        <ul id="main-menu">
+          <li><a href="#about">O nás</a></li>
+          <li><a href="#hours">Otváracie hodiny</a></li>
+          <li><a href="#team">Náš tím</a></li>
+          <li><a href="#services">Služby</a></li>
+          <li><a href="#gallery">Galéria</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+          <li><a href="#booking" class="btn btn-outline">Objednať sa</a></li>
+        </ul>
+      </nav>
+      
+      <div class="social-links">
+        <a href="https://www.facebook.com/JasajBarber/" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+        <a href="https://www.instagram.com/jasaj_barber/" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+      </div>
+      
+      <div class="mobile-toggle" id="mobile-menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+  
+  <!-- Hero Section -->
+  <section class="hero" style="background: linear-gradient(rgba(13, 31, 35, 0.7), rgba(13, 31, 35, 0.7)), url('data/images/1_big.jpg') center/cover no-repeat;">
+    <div class="wrapper hero-content">
+      <h1>Poctivé remeslo a <br>moderný gentleman</h1>
+      <p>Zažite prémiovú starostlivosť o vzhľad v rukách skúsených profesionálov. V JASAJ BARBER vytvárame účesy a úpravy brady, ktoré zvýraznia váš charakter a štýl.</p>
+      <div class="hero-actions">
+        <a href="#booking" class="btn">Objednať sa</a>
+        <a href="#services" class="btn btn-outline">Naše služby</a>
+      </div>
+    </div>
+    <a href="#about" class="scroll-down">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+  <!-- About Section -->
+  <section class="light" id="about">
+    <div class="wrapper">
+      <div class="about">
+        <div class="about-image">
+          <img src="data/images/onas.jpg" alt="JASAJ BARBER interiér">
+        </div>
+        <div class="about-content">
+          <h2>O <strong>nás</strong></h2>
+          <p>JASAJ BARBER je viac než len holičstvo. Je to miesto, kde sa stretáva tradičné remeslo s moderným prístupom k pánskej úprave vzhľadu.</p>
+          <p>Prísne dodržiavame najvyššie pracovné štandardy a vážime si každého zo stoviek spokojných zákazníkov vrátane Vás. Našimi hodnotami sú spokojnosť, spoľahlivosť a odbornosť vo vzťahu k zákazníkom.</p>
+          <p>Objednajte sa a nechajte nás postarať sa o vašu bradu a účes. Úprava brady a strihanie vlasov bude pre Vás čas, ktorý si užijete a my sa postaráme o to, aby ste vyzerali perfektne. Pretože správnemu chlapovi záleží na tom, ako vyzerá.</p>
+          <a href="#booking" class="btn">Rezervovať termín</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="dark benefits" id="benefits">
+    <div class="wrapper">
+      <h2 class="text-center">Naše <strong>benefity</strong></h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+          </div>
+          <h3 class="benefit-title">Kvalita a rýchlosť</h3>
+          <p>Naši barberi majú bohaté skúsenosti za roky praxe a vedia, ako vytvoriť dokonalý účes efektívne.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 15h-.4a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h.4"></path><path d="M19.2 15h.4a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-.4"></path><path d="M12 8v4"></path><path d="M8 9h8"></path><path d="M12 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"></path><path d="M8 4V20"></path><path d="M16 4V20"></path></svg>
+          </div>
+          <h3 class="benefit-title">Kvalitné produkty</h3>
+          <p>Používame len kvalitné a osvedčené produkty od renomovaných značiek, ktoré splnia aj tie najnáročnejšie požiadavky.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </div>
+          <h3 class="benefit-title">SMS oznámenie</h3>
+          <p>Vašu rezerváciu Vám pripomenieme vždy deň pred termínom prostredníctvom SMS, aby ste na ňu nezabudli.</p>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+          </div>
+          <h3 class="benefit-title">Platba kartou</h3>
+          <p>U nás si môžete vybrať spôsob platby: platobnou kartou alebo v hotovosti podľa vašich preferencií.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hours Section -->
+  <section class="light hours" id="hours">
+    <div class="wrapper">
+      <h2 class="text-center">Otváracie <strong>hodiny</strong></h2>
+      <div class="hours-container">
+        <p class="text-center">Snažíme sa byť tu pre Vás, vždy keď nás potrebujete.</p>
+        
+        <div class="hours-list">
+          <div class="hours-item">
+            <span class="day">Pondelok</span>
+            <span class="time">9:00 - 19:00</span>
+          </div>
+          <div class="hours-item">
+            <span class="day">Utorok</span>
+            <span class="time">9:00 - 19:00</span>
+          </div>
+          <div class="hours-item">
+            <span class="day">Streda</span>
+            <span class="time">9:00 - 19:00</span>
+          </div>
+          <div class="hours-item">
+            <span class="day">Štvrtok</span>
+            <span class="time">9:00 - 19:00</span>
+          </div>
+          <div class="hours-item">
+            <span class="day">Piatok</span>
+            <span class="time">9:00 - 19:00</span>
+          </div>
+          <div class="hours-item">
+            <span class="day">Sobota</span>
+            <span class="time closed">Zatvorené</span>
+          </div>
+          <div class="hours-item">
+            <span class="day">Nedeľa</span>
+            <span class="time closed">Zatvorené</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="dark team" id="team">
+    <div class="wrapper">
+      <div class="team-intro">
+        <div class="team-video">
+          <video controls autoplay muted loop poster="data/images/nas_tim_video.jpg">
+            <source src="data/images/final.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div>
+          <h2>Náš <strong>tím</strong></h2>
+          <p>Náš tím tvoria certifikovaní a skúsení barberi, ktorí sa neustále vzdelávajú v najnovších trendoch a technikách.</p>
+          <p>Poradia Vám pri výbere vhodnej úpravy vášho zovňajšku, podľa vášho tvaru hlavy, hustoty vlasov, farby vlasov, veku, postavenia a iných faktorov.</p>
+          <p>V rukách našich barber majstrov sa budete cítiť uvoľnene a výsledok vás príjemne prekvapí. V JASAJ BARBER nejde len o strihanie - ide o celkový zážitok.</p>
+        </div>
+      </div>
+      
+      <div class="team-members">
+        <div class="team-member">
+          <img src="data/images/nas_tim_barber_lukas.jpg" alt="Lukáš" class="member-image">
+          <div class="member-info">
+            <h3 class="member-name">Lukáš</h3>
+            <p class="member-title">Barber</p>
+            <div class="member-social">
+              <a href="https://instagram.com/lukas_jasaj?igshid=ZDdkNTZiNTM=" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="data/images/nas_tim_barber_patrik.jpg" alt="Patrik" class="member-image">
+          <div class="member-info">
+            <h3 class="member-name">Patrik</h3>
+            <p class="member-title">Barber</p>
+            <div class="member-social">
+              <a href="https://instagram.com/picinoge?igshid=YmMyMTA2M2Y=" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="light" id="services">
+    <div class="wrapper">
+      <h2 class="text-center">Naše <strong>služby</strong></h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <img src="data/images/nase_sluzby_strihanie.jpg" alt="Strihanie" class="service-image">
+          <div class="service-content">
+            <h3 class="service-title">Strihanie</h3>
+            <div class="service-meta">
+              <span>Trvanie: 45 minút</span>
+            </div>
+            <div class="service-price">
+              23,00 €
+            </div>
+            <a href="#booking" class="btn">Objednať sa</a>
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <img src="data/images/nase_sluzby_strihanie_aj_uprava_brady.jpg" alt="Strihanie aj úprava brady" class="service-image">
+          <div class="service-content">
+            <h3 class="service-title">Strihanie aj úprava brady</h3>
+            <div class="service-meta">
+              <span>Trvanie: 60 minút</span>
+            </div>
+            <div class="service-price">
+              33,00 €
+            </div>
+            <a href="#booking" class="btn">Objednať sa</a>
+          </div>
+        </div>
+        
+        <div class="service-card">
+          <img src="data/images/nase_sluzby_uprava_brady.jpg" alt="Úprava brady" class="service-image">
+          <div class="service-content">
+            <h3 class="service-title">Úprava brady</h3>
+            <div class="service-meta">
+              <span>Trvanie: 30 minút</span>
+            </div>
+            <div class="service-price">
+              13,00 €
+            </div>
+            <a href="#booking" class="btn">Objednať sa</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="dark gallery" id="gallery">
+    <div class="wrapper">
+      <h2 class="text-center">Galéria <strong>našej práce</strong></h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="/api/placeholder/600/600" alt="Účes 1" class="gallery-image">
+          <div class="gallery-overlay">
+            <div class="gallery-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="/api/placeholder/600/600" alt="Účes 2" class="gallery-image">
+          <div class="gallery-overlay">
+            <div class="gallery-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="/api/placeholder/600/600" alt="Účes 3" class="gallery-image">
+          <div class="gallery-overlay">
+            <div class="gallery-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="/api/placeholder/600/600" alt="Účes 4" class="gallery-image">
+          <div class="gallery-overlay">
+            <div class="gallery-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="/api/placeholder/600/600" alt="Účes 5" class="gallery-image">
+          <div class="gallery-overlay">
+            <div class="gallery-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            </div>
+          </div>
+        </div>
+        
+        <div class="gallery-item">
+          <img src="/api/placeholder/600/600" alt="Účes 6" class="gallery-image">
+          <div class="gallery-overlay">
+            <div class="gallery-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Section -->
+  <section class="booking" id="booking">
+    <div class="wrapper">
+      <div class="booking-form">
+        <div class="form-intro">
+          <h2>Objednajte <strong>sa</strong></h2>
+          <p>Rezervujte si termín online a my vám potvrdíme vašu rezerváciu.</p>
+        </div>
+        
+        <form>
+          <div class="form-section">
+            <div class="form-section-title">
+              <span class="section-number">1</span>
+              Vyberte pobočku
+            </div>
+            <div class="option-cards">
+              <div class="option-card selected">
+                <h4>Trenčín Juh</h4>
+                <p class="option-meta">Saratovská 2373, Trenčín</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <div class="form-section-title">
+              <span class="section-number">2</span>
+              Vyberte barbera
+            </div>
+            <div class="option-cards">
+              <div class="option-card">
+                <img src="data/images/barber_0.jpg" alt="Nezáleží">
+                <h4>Nezáleží na barberovi</h4>
+              </div>
+              <div class="option-card selected">
+                <img src="data/images/barber_1.jpg" alt="Lukáš">
+                <h4>Lukáš</h4>
+              </div>
+              <div class="option-card">
+                <img src="data/images/barber_2.jpg" alt="Patrik">
+                <h4>Patrik</h4>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <div class="form-section-title">
+              <span class="section-number">3</span>
+              Vyberte službu
+            </div>
+            <div class="option-cards">
+              <div class="option-card">
+                <h4>Strihanie</h4>
+                <div class="option-meta">
+                  <p>Trvanie: 45min</p>
+                  <p>Cena: 23,00€</p>
+                </div>
+              </div>
+              <div class="option-card selected">
+                <h4>Strihanie aj brada</h4>
+                <div class="option-meta">
+                  <p>Trvanie: 60min</p>
+                  <p>Cena: 33,00€</p>
+                </div>
+              </div>
+              <div class="option-card">
+                <h4>Úprava brady</h4>
+                <div class="option-meta">
+                  <p>Trvanie: 30min</p>
+                  <p>Cena: 13,00€</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <div class="form-section-title">
+              <span class="section-number">4</span>
+              Vyberte dátum
+            </div>
+            <div class="date-picker-wrapper">
+              <div class="date-option">18.02</div>
+              <div class="date-option selected">19.02</div>
+              <div class="date-option">20.02</div>
+              <div class="date-option">21.02</div>
+              <div class="date-option">22.02</div>
+              <div class="date-option">25.02</div>
+              <div class="date-option">26.02</div>
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <div class="form-section-title">
+              <span class="section-number">5</span>
+              Vyberte čas
+            </div>
+            <div class="time-picker-wrapper">
+              <div class="time-option">9:00</div>
+              <div class="time-option">10:00</div>
+              <div class="time-option">11:00</div>
+              <div class="time-option">12:00</div>
+              <div class="time-option selected">13:00</div>
+              <div class="time-option">14:00</div>
+              <div class="time-option">15:00</div>
+              <div class="time-option">16:00</div>
+              <div class="time-option">17:00</div>
+              <div class="time-option">18:00</div>
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <div class="form-section-title">
+              <span class="section-number">6</span>
+              Vaše údaje
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Meno a priezvisko*</label>
+              <input type="text" class="form-control" placeholder="Zadajte vaše meno">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Telefón*</label>
+              <input type="tel" class="form-control" placeholder="09xx xxx xxx">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">E-mail*</label>
+              <input type="email" class="form-control" placeholder="vas@email.sk">
+            </div>
+            
+            <div class="checkbox-group">
+              <input type="checkbox" id="agreement-privacy">
+              <label for="agreement-privacy">Súhlasím so spracovaním osobných údajov</label>
+            </div>
+            
+            <div class="checkbox-group">
+              <input type="checkbox" id="agreement-sms" checked>
+              <label for="agreement-sms">Súhlasím so zaslaním SMS s pripomenutím termínu</label>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-submit">Rezervovať</button>
+          </div>
+          
+          <p class="text-center" style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">* - povinné položky</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="light contact" id="contact">
+    <div class="wrapper">
+      <h2 class="text-center">Kontakt</h2>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <img src="data/images/logo_kontakt.jpg" alt="JASAJ BARBER logo" class="contact-logo">
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <strong>Adresa</strong><br>
+              Saratovská 2373/4, Trenčín 911 08
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div>
+              <strong>Telefón</strong><br>
+              0911 434 800
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            </div>
+            <div>
+              <strong>E-mail</strong><br>
+              info@jasaj.sk
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </div>
+            <div>
+              <strong>Instagram</strong><br>
+              @jasaj_barber
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </div>
+            <div>
+              <strong>Facebook</strong><br>
+              Jasaj Barber
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10496.48125890177!2d18.040551!3d48.8749829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4714a32dcbef746f%3A0x1d1eb6b7d681b8c8!2sJasaj%20Barber!5e0!3m2!1ssk!2ssk!4v1680087941088!5m2!1ssk!2ssk" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrapper">
+      <div class="footer-top">
+        <div class="footer-about">
+          <img src="data/images/logo_kontakt.jpg" alt="JASAJ BARBER logo" class="footer-logo">
+          <p>JASAJ BARBER je miesto, kde sa premieňa tradičné remeslo na modernú eleganciu. Naše holičstvo kladie dôraz na kvalitu, presnosť a dokonalý výsledok pri každej návšteve.</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/JasajBarber/" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://www.instagram.com/jasaj_barber/" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-nav">
+          <h4 class="footer-heading">Navigácia</h4>
+          <ul class="footer-links">
+            <li><a href="#about">O nás</a></li>
+            <li><a href="#hours">Otváracie hodiny</a></li>
+            <li><a href="#team">Náš tím</a></li>
+            <li><a href="#services">Služby</a></li>
+            <li><a href="#gallery">Galéria</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="#booking">Objednať sa</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-contact">
+          <h4 class="footer-heading">Kontakt</h4>
+          <ul class="footer-links">
+            <li>Saratovská 2373/4</li>
+            <li>Trenčín 911 08</li>
+            <li>0911 434 800</li>
+            <li>info@jasaj.sk</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>&copy; Jasaj Barber 2025. Všetky práva vyhradené.</div>
+        <div>Designed by PNH Media</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cookie consent -->
+  <div class="cookie-consent" id="cookie-consent" style="display: none;">
+    <div class="cookie-content">
+      <p>Táto stránka používa cookies, jej prehliadaním súhlasíte s ich používaním.</p>
+      <div class="cookie-buttons">
+        <a href="#cookie-text" class="cookie-more">Viac informácií</a>
+        <button class="cookie-accept">Súhlasím</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for functionality -->
+  <script>
+    // Sticky header
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+    
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('main-menu');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+    
+    if (mobileToggle && mobileMenu && mobileOverlay) {
+      mobileToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+        mobileOverlay.classList.toggle('active');
+        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+      });
+      
+      mobileOverlay.addEventListener('click', function() {
+        mobileMenu.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+      
+      // Close mobile menu when clicking on a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+    
+    // Option card selection
+    document.querySelectorAll('.option-card').forEach(card => {
+      card.addEventListener('click', function() {
+        // Remove selected class from siblings
+        const siblings = Array.from(this.parentNode.children);
+        siblings.forEach(sibling => {
+          sibling.classList.remove('selected');
+        });
+        
+        // Add selected class to clicked card
+        this.classList.add('selected');
+      });
+    });
+    
+    // Date and time selection
+    document.querySelectorAll('.date-option, .time-option').forEach(option => {
+      option.addEventListener('click', function() {
+        // Remove selected class from siblings
+        const siblings = Array.from(this.parentNode.children);
+        siblings.forEach(sibling => {
+          sibling.classList.remove('selected');
+        });
+        
+        // Add selected class to clicked option
+        this.classList.add('selected');
+      });
+    });
+    
+    // Cookie consent
+    document.addEventListener('DOMContentLoaded', function() {
+      const cookieConsent = document.getElementById('cookie-consent');
+      const cookieAccept = document.getElementById('cookie-accept');
+      const cookieMore = document.getElementById('cookie-more');
+      const cookiePopup = document.getElementById('cookie-text-popup');
+      const cookiePopupClose = document.getElementById('cookie-popup-close');
+      const overlay = document.getElementById('overlay');
+      
+      // Check if user has already accepted cookies
+      if (!localStorage.getItem('cookiesAccepted')) {
+        cookieConsent.style.display = 'flex';
+      }
+      
+      cookieAccept.addEventListener('click', function() {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieConsent.style.display = 'none';
+      });
+      
+      cookieMore.addEventListener('click', function(e) {
+        e.preventDefault();
+        cookiePopup.style.display = 'block';
+        overlay.style.display = 'block';
+      });
+      
+      cookiePopupClose.addEventListener('click', function() {
+        cookiePopup.style.display = 'none';
+        overlay.style.display = 'none';
+      });
+      
+      overlay.addEventListener('click', function() {
+        cookiePopup.style.display = 'none';
+        overlay.style.display = 'none';
+      });
+    });
+  </script>
+</body>
+</html>
